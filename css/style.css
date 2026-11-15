@@ -1,0 +1,200 @@
+:root {
+  --parchment: #F6F0E5;
+  --forest: #293A35;
+  --berry: #913F43;
+  --gold: #D3B77B;
+  --ink: #39312E;
+}
+
+body {
+  font-family: "Noto Serif TC", "PingFang TC", "Microsoft JhengHei", serif;
+  background-color: var(--parchment);
+  color: var(--ink);
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+}
+
+/* 🌟 全新改造的綠色導覽列：變成超大主標題的封面 */
+header {
+  background-color: var(--forest);
+  color: var(--parchment);
+  padding: 3rem 1.5rem 2rem 1.5rem; /* 增加上下空間，讓它更有霸氣 */
+  text-align: center;
+  border-bottom: 4px solid var(--gold);
+}
+
+/* 綠色區塊裡的主標題：最大、最置中 */
+header h1 {
+  margin: 0 0 1.5rem 0;
+}
+
+header h1 a {
+  color: var(--parchment);
+  text-decoration: none;
+  font-size: 4rem; /* 超大！ */
+  letter-spacing: 10px;
+  font-weight: 900;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* 連結之間的間距 */
+}
+
+nav a {
+  color: var(--parchment);
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+nav a:hover { 
+  border-bottom: 2px solid var(--gold); 
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 首頁主視覺區塊 */
+.hero-section {
+  padding: 4rem 0;
+  border-bottom: 1px dashed var(--gold);
+  margin-bottom: 3rem;
+}
+
+/* 左右分欄 */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .hero-content { flex-direction: row; align-items: center; }
+  .hero-text { flex: 1.2; padding-right: 2rem; }
+  .hero-img { flex: 1; }
+}
+
+/* 次大：小標題 */
+.hero-text h2 {
+  font-size: 2rem;
+  color: var(--berry);
+  font-weight: bold;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--gold);
+  padding-left: 1.2rem;
+}
+
+/* 最小：內文引言 */
+.hero-text p {
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  line-height: 2;
+}
+
+/* 右側圖片設定 */
+.hero-img img {
+  width: 100%;
+  border-radius: 8px;
+  border: 3px solid #fff;
+  box-shadow: 5px 5px 25px rgba(41, 58, 53, 0.2);
+  display: block;
+}
+
+/* 下半部卡片區標題 */
+.section-title {
+  font-size: 1.5rem;
+  color: var(--forest);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.section-title::before {
+  content: "✦";
+  color: var(--berry);
+  margin-right: 0.5rem;
+}
+.section-title::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background: var(--gold);
+  margin-left: 1rem;
+}
+
+/* 卡片網格 */
+.grid { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 2rem; 
+}
+@media (min-width: 768px) { 
+  .grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); } 
+}
+
+.card {
+  background: #fff;
+  border: 2px solid var(--forest);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 3px 3px 0px rgba(41, 58, 53, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 6px 6px 0px rgba(41, 58, 53, 0.15); 
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--forest);
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-tag {
+  display: inline-block;
+  background-color: var(--berry);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+.card h3 { color: var(--forest); margin-top: 0; font-size: 1.3rem; margin-bottom: 0.5rem;}
+.card p { font-size: 0.95rem; color: var(--ink); flex-grow: 1; }
+
+/* 文章內頁與頁尾 */
+article { background: #fff; padding: 2rem; border: 2px solid var(--forest); box-shadow: 3px 3px 0px rgba(41, 58, 53, 0.1); border-radius: 8px; }
+@media (min-width: 768px) { article { padding: 4rem; } }
+article h1 { color: var(--berry); font-size: 2.2rem; margin-top: 0; border-bottom: 2px solid var(--gold); padding-bottom: 1rem; }
+article h2 { color: var(--forest); margin-top: 3rem; border-left: 4px solid var(--berry); padding-left: 1rem; font-size: 1.5rem; }
+.back-link { display: inline-block; margin-top: 2rem; color: var(--berry); text-decoration: none; font-weight: bold; }
+footer { text-align: center; padding: 2rem 0; color: var(--forest); font-size: 0.9rem; border-top: 1px solid var(--gold); margin-top: 4rem; }
